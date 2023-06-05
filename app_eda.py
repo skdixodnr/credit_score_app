@@ -5,12 +5,15 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
+# st.set_page_config(layout="wide")
+# empty1, col1, empty2 = st.columns([0.3,1.0,0.3])
 def run_app_eda():
+    # with col1:
     st.subheader('이 메뉴는 데이터 분석메뉴입니다')
     st.text('데이터 출처:https://www.kaggle.com/')
 
     df = pd.read_csv('data/Credit Score Classification Dataset.csv',
-                     encoding='ISO-8859-1')
+                    encoding='ISO-8859-1')
     print(df)
 
     df_new = pd.DataFrame()
@@ -37,11 +40,24 @@ def run_app_eda():
 
 
     st.subheader('데이터 프레임 보기')
+    if st.checkbox('**:red[데이터 한글 번역]**'):
+        col1,col2,col3,col4 = st.columns(4)
+        with col1:
+            st.text('Gender:성별\nMale:남자\nFemale:여자')
+        with col2:
+            st.text("Education:최종 학력\nHigh School Diploma:고등학교 졸업\nAssociate's Degree:대학교 졸업\nBachelor's Degree:학사 학위\nMaster's Degree:석사 학위\nDoctorate:박사 학위")
+        with col3:
+            st.text('Marital Status:결혼 여부\nSingle:미혼\nMarried:기혼')
+        with col4:
+            st.text('Home Ownership:주택 소유\nOwned:소유\nRented:임대')
+        st.text('Income:연봉\nNumber of Children:자녀 수')
+    else:
+        st.markdown('**:red[데이터 한글 번역을 숨겼습니다.]**')
     st.dataframe(df)
 
     if st.checkbox('숫자로 바꾼 데이터 프레임 보기'):
         st.dataframe(df_new)
-  
+
     st.subheader('기본 통계 데이터')
     st.dataframe(df.describe())
 

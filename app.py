@@ -11,28 +11,32 @@ from app_home import run_app_home
 from app_eda import run_app_eda
 from app_ml import run_app_ml
 
+st.set_page_config(layout="wide")
+empty1, con1, empty2 = st.columns([0.1,1.0,0.1])
+
 def main():
-    st.title('**🐶:blue[신용점수 예측]🐼**')
+    with con1:
+        st.title('**🐶:blue[신용점수 예측]🐼**')
 
-    menu = ['Home','EDA','ML']
+        menu = ['Home','EDA','ML']
 
-    with st.sidebar:
-        choice = option_menu('앱 메뉴', menu,
-                            icons=["bi bi-house","bi bi-bar-chart-line-fill",'bi bi-robot'],
-                            menu_icon="bi bi-menu-up",default_index=0,
-                            styles={
-                            "container": {"padding": "5!important", "background-color": "#fafafa"},
-                            "icon": {"color": "orange", "font-size": "25px"}, 
-                            "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
-                            "nav-link-selected": {"background-color": "#02ab21"},    
-                            })
+        with st.sidebar:
+            choice = option_menu('앱 메뉴', menu,
+                                icons=["bi bi-house","bi bi-bar-chart-line-fill",'bi bi-robot'],
+                                menu_icon="bi bi-menu-up",default_index=0,
+                                styles={
+                                "container": {"padding": "5!important", "background-color": "#fafafa"},
+                                "icon": {"color": "orange", "font-size": "25px"}, 
+                                "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+                                "nav-link-selected": {"background-color": "#02ab21"},    
+                                })
 
-    if choice == menu[0]:
-        run_app_home()
-    elif choice == menu[1]:
-        run_app_eda()
-    else:
-        run_app_ml()
+        if choice == menu[0]:
+            run_app_home()
+        elif choice == menu[1]:
+            run_app_eda()
+        else:
+            run_app_ml()
 
 
 

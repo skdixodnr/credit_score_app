@@ -66,6 +66,7 @@ def run_app_ml():
         print(f'고객님의 신용점수는 {price}점 입니다.')
 
         if price < 0 :
-            st.text('죄송합니다. 0점 미만은 표시할 수 없습니다.')
+            st.subheader('죄송합니다. 0점 미만은 표시할 수 없습니다.')
         else :
-            st.text(f'고객님의 신용점수는 {price}점 입니다.\n0점:낮음\n1점:보통\n2점:높음')
+            st.subheader(f'고객님의 신용점수는 {price}점입니다.')
+            st.text('0점:낮음\n1점:보통\n2점:높음')
