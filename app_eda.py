@@ -67,10 +67,10 @@ def run_app_eda():
     st.subheader('Nan데이터 확인')
     st.dataframe(df_new.isna().sum())
 
-    st.subheader('컬럼 별 히스토그램')
+    st.subheader('컬럼 별 히스토그램(분포도)')
     
-    column = st.selectbox('파이차트 확인할 컬럼을 선택하세요.', df.columns[0:])
-    bins = st.number_input('빈의 갯수를 입력하세요.',10,30,20)
+    column = st.selectbox('히스토그램 확인할 컬럼을 선택하세요.', df.columns[0:])
+    bins = st.number_input('빈(막대)의 갯수를 입력하세요.',10,30,20)
 
     
     fig = plt.figure(figsize=(10,8))
@@ -88,10 +88,13 @@ def run_app_eda():
     column_list = st.multiselect('상관분석 하고싶은 컬럼을 선택하세요.', df_new.columns[0:])
 
     if len(column_list) >= 2 :
-        fig2 = plt.figure()
-        sns.heatmap(data=df_new[column_list].corr(),
-            annot=True, vmin=-1,vmax=1,cmap='coolwarm',
-            fmt='.2f', linewidths = 0.5)
-        st.pyplot(fig2)
-
+        col5,col6 = st.columns([2,1])
+        with col5:
+            fig2 = plt.figure()
+            sns.heatmap(data=df_new[column_list].corr(),
+                annot=True, vmin=-1,vmax=1,cmap='coolwarm',
+                fmt='.2f', linewidths = 0.5)
+            st.pyplot(fig2)
+        with col6:
+            st.subheader('1 에 가까울수록 비례관계이고,-1 에 가까울수록 반비례관계')
     print(column_list)
