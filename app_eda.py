@@ -98,3 +98,6 @@ def run_app_eda():
         with col6:
             st.subheader('1 에 가까울수록 비례관계이고,-1 에 가까울수록 반비례관계')
     print(column_list)
+
+    st.markdown('**:red[결론!]**')
+    st.text('나이,연봉은 신용점수와 비례적관계이고\n주택소유는 신용점수와 반비례적 관계이다')
