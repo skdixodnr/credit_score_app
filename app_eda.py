@@ -31,7 +31,7 @@ def run_app_eda():
     # df_new['Marital Status'] = df['Marital Status'].replace('Single',1) 
 
     df_new['Number of Children'] = df['Number of Children']
-    df_new['Home Ownership'] = df['Home Ownership'].replace('Owned',0).replace('Rented',1)
+    df_new['Home Ownership'] = df['Home Ownership'].replace('Rented',0).replace('Owned',1)
     # df_new['Home Ownership'] = df['Home Ownership'].replace('Rented',1)
 
     df_new['Credit Score'] = df['Credit Score'].replace('Low',0).replace('Average',1).replace('High',2)
@@ -100,4 +100,4 @@ def run_app_eda():
     print(column_list)
 
     st.markdown('**:red[결론!]**')
-    st.text('나이,연봉은 신용점수와 비례적관계이고\n주택소유는 신용점수와 반비례적 관계이다')
+    st.text('나이,연봉,주택소유는 신용점수와 비례적관계!!!')
