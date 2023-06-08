@@ -1,4 +1,4 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=신용점수 예측&fontSize=90" />
+![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=신용점수%20예측&fontSize=90)
 # 데이터 소개
 - 이 앱은 신용정보를 기반으로 신용점수를 예측하는 앱입니다.
 - 테스트 결과 정확률은 94%입니다.
