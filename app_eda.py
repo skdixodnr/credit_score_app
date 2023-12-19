@@ -27,7 +27,7 @@ def run_app_eda():
     # df_new['Education'] = df['Education'].replace("Bachelor's Degree",2)
     # df_new['Education'] = df['Education'].replace("Master's Degree",3)
     # df_new['Education'] = df['Education'].replace('Doctorate',4)
-    df_new['Marital Status'] = df['Marital Status'].replace('Married',0).replace('Single',1)
+    df_new['Marital Status'] = df['Marital Status'].replace('Married',1).replace('Single',0)
     # df_new['Marital Status'] = df['Marital Status'].replace('Single',1) 
 
     df_new['Number of Children'] = df['Number of Children']
@@ -100,4 +100,4 @@ def run_app_eda():
     print(column_list)
 
     st.markdown('**:red[결론!]**')
-    st.text('나이,연봉,주택소유는 신용점수와 비례적관계!!!')
+    st.text('1. 나이와 연봉은 신용점수와 비례적 관계\n\n2. 신용점수가 높은 사람은 주택 소유,기혼자가 많다')
